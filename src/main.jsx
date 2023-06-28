@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {
+  BrowserRouter,
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { styled } from '@mui/material/styles';
 
 import ReactHookFormScreen from './ReactHookFormScreen';
 import RTKScreen from './RTKScreen';
 
 import { store } from './RTKStore';
 import { Provider } from 'react-redux';
+
 
 const router = createBrowserRouter([
   {
@@ -35,8 +38,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+      <Provider store={store}>
+        <App/>
+      </Provider>
   </React.StrictMode>
 );

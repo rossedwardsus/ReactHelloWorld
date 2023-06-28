@@ -4,6 +4,8 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
+import { Link } from "react-router-dom";
+
 const schema = yup.object({
   firstName: yup.string().required(),
   age: yup.number().positive().integer().required(),
@@ -20,6 +22,7 @@ export default function ReactHookForm() {
 
   return (
     <div style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Link to="/app">{"user.name"}</Link>
       <Controller
         control={control}
         rules={{
