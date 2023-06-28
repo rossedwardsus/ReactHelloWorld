@@ -20,6 +20,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 import ReactHookFormScreen from './ReactHookFormScreen';
 import RTKScreen from './RTKScreen';
+import BudgetAddItemScreen from './BudgetAddItem';
+import CreateProjectBudgetScreen from './CreateBudgetScreen';
+import ViewProjectBudgetScreen from './ViewProjectBudgetScreen';
+
+import { useDispatch, useSelector } from "react-redux";
+import { setMessages } from "./RTKMessageSlice";
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -31,11 +37,13 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const projects = useSelector((state) => state.color.projects); //reading the state 
 
   return (
     <BrowserRouter>
-      <Box sx={{ flexGrow: 1, width: "100vw", height: "100vh", minWidth: "1000vh", minHeight: "100%"}}>
+      <Box sx={{ m: 0, width: "100vw", height: "100vh", minHeight: "100%"}}>
         <Grid container spacing={0}>
           <Grid item xs={2}>
           <Box sx={{flexGrow: 1}}>
@@ -48,6 +56,24 @@ function App() {
               <Link to="/rtk">reacttoolkit</Link>
               <br/>
               <Link to="/reacthookform">reacthookform</Link>
+              <br/>
+              Project list
+              <br/>
+              {JSON.stringify(projects)}
+              <br/>
+              { 
+                projects.map(project => {
+
+                  return <Link to={"/viewprojectbudgetscreen/" + project.projectId}>view project 1{project.projectId}</Link>
+
+                })
+              }
+              <br/>
+              Create a project budget
+              <br/>
+              <Link to="/budgetadditem">budgetadditem</Link>
+              <br/>
+              <Link to="/createprojectbudgetscreen">createprojectbudget</Link>
             </div>
             </Item>
             </Box>
@@ -59,6 +85,9 @@ function App() {
                 <Route path="/" element={<>hello</>} exact/>
                 <Route path="/rtk" element={<RTKScreen/>} exact/>
                 <Route path="/reacthookform" element={<ReactHookFormScreen/>} exact/>
+                <Route path="/budgetadditem" element={<BudgetAddItemScreen/>} exact/>
+                <Route path="/createprojectbudgetscreen" element={<CreateProjectBudgetScreen/>} />
+                <Route path="/viewprojectbudgetscreen/:projectId" element={<ViewProjectBudgetScreen/>} />
               </Routes>
 
           </Grid>

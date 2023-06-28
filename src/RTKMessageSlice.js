@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
  //colors generated
-  value: [],
+  projects: [{projectId: "1", projectName: "pn", projectBudgetItems: [{projectItemDescription: "id", projectBudgetItemAmount: 100, projectItemAddedByUserId: 1, projectBudgetItemAddedDate: 1}]}],
 };
 
 //A function to generate random RGB values
