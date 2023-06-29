@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
  //colors generated
-  projects: [{projectId: "1", projectName: "pn", projectBudgetItems: [{projectBudgetItemId: 1, projectItemDescription: "id", projectBudgetItemAmount: 100, projectItemAddedByUserId: 1, projectBudgetItemAddedDate: 1}]}],
+  projects: [{projectId: "1", projectName: "pn", projectBudgetItems: [{projectBudgetItemId: 1, projectBudgetItemName: "in", projectItemDescription: "id", projectBudgetItemAmount: 100, projectItemAddedByUserId: 1, projectBudgetItemAddedDate: 1}]}],
 };
 
 //A function to generate random RGB values
@@ -21,6 +21,10 @@ export const messagesSlice = createSlice({
   reducers: {
     setMessages: (state, action) => {
       //state.value = [...state.value, randomRgb()];
+      //set date == current date
+
+      //{...action.payload, projectBudgetDateAdded: Date()}
+
       state.value = [...state.value, action.payload];
     },
     deleteProjectBudgetItem: (state, action) => {

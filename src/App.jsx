@@ -46,11 +46,11 @@ function App() {
       <Box sx={{ m: 0, width: "100vw", height: "100vh", minHeight: "100%"}}>
         <Grid container spacing={0}>
           <Grid item xs={2}>
-          <Box sx={{flexGrow: 1}}>
+          <Box sx={{flexGrow: 1, justifyContent: "left", alignContent: "left"}}>
         
             <Item>xs=8</Item>
             <Item>
-            <div>
+            <div style={{flexGrow: 1, textAlign: "left"}}>
               <Link to="/">root</Link>
               <br/>
               <Link to="/rtk">reacttoolkit</Link>
